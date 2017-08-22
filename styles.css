@@ -1,0 +1,146 @@
+:root {
+  --main-bg-color: rgba(0,0,0,0);
+  --main-border-color: rgba(0,183,229,0.9);
+  --main-box-shadown-color:#2187e7;
+}
+.circle {
+background-color:  var(--main-bg-color);;
+border: 5px solid var(--main-border-color);
+opacity: .9;
+border-right: 5px solid var(--main-bg-color);
+border-left: 5px solid var(--main-bg-color);
+border-radius: 50px;
+box-shadow: 0 0 35px var(--main-box-shadown-color);
+width: 50px;
+height: 50px;
+margin: auto;
+-moz-animation: spinPulse 1s infinite ease-in-out;
+-webkit-animation: spinPulse 1s infinite linear;
+}
+
+.circle1 {
+background-color: var(--main-bg-color);
+border: 5px solid var(--main-border-color);
+opacity: .9;
+border-left: 5px solid var(--main-bg-color);
+border-right: 5px solid var(--main-bg-color);
+border-radius: 50px;
+box-shadow: 0 0 15px #2187e7;
+width: 30px;
+height: 30px;
+margin: auto;
+position: relative;
+top: -50px;
+-moz-animation: spinoffPulse 1s infinite linear;
+-webkit-animation: spinoffPulse 1s infinite linear;
+}
+
+@-moz-keyframes spinPulse {
+0% {
+-moz-transform: rotate(160deg);
+opacity: 0;
+box-shadow: 0 0 1px #2187e7;
+}
+
+50% {
+-moz-transform: rotate(145deg);
+opacity: 1;
+}
+
+100% {
+-moz-transform: rotate(-320deg);
+opacity: 0;
+};
+}
+
+@-moz-keyframes spinoffPulse {
+0% {
+-moz-transform: rotate(0deg);
+}
+
+100% {
+-moz-transform: rotate(360deg);
+};
+}
+
+@-webkit-keyframes spinPulse {
+0% {
+-webkit-transform: rotate(160deg);
+opacity: 0;
+box-shadow: 0 0 1px #2187e7;
+}
+
+50% {
+-webkit-transform: rotate(145deg);
+opacity: 1;
+}
+
+100% {
+-webkit-transform: rotate(-320deg);
+opacity: 0;
+};
+}
+
+@-webkit-keyframes spinoffPulse {
+0% {
+-webkit-transform: rotate(0deg);
+}
+
+100% {
+-webkit-transform: rotate(360deg);
+};
+}
+
+
+.loading-modal {
+display: none;
+position: fixed;
+z-index: 1000;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+background: rgba( 255, 255, 255, .8 );
+}
+
+/* When the body has the loading class, we turn
+the scrollbar off with overflow:hidden */
+body.loading {
+overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+modal element will be visible */
+body.loading .loading-modal {
+display: flex;
+.modal-content {
+position: relative;
+background-color: @modal-content-bg;
+border: 1px solid @modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
+border: 1px solid @modal-content-border-color;
+border-radius: @border-radius-large;
+.box-shadow(0 3px 9px rgba(0,0,0,.5));
+background-clip: padding-box;
+outline: 0;
+width: 150%;
+padding-left: 10px;
+padding-right: 10px;
+}
+
+
+$size: 50px;
+$thickness: 5px;
+$angle: 40deg;
+$angleHover: 30deg;
+$angleActive: 25deg;
+
+@mixin arrowTransform( $angle, $x: 0, $y: 0 ) {
+i:first-child {
+transform: translate( $x, $y ) rotate( $angle );
+}
+
+i:last-child {
+transform: translate( $x, -$y ) rotate( -$angle );
+}
+}
+}
